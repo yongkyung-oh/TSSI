@@ -155,7 +155,7 @@ class TransferModel(nn.Module):
             self.model.fc[-1].weight.register_hook(lambda grad: 100 * grad)
             self.model.fc[-1].bias.register_hook(lambda grad: 100 * grad)
 
-        elif model_name in ['Efficientnet-b0', 'Efficientnet-b4', 'Efficientnet-b7']:
+        elif model_name in ['Efficientnet-b0', 'Efficientnet-b3', 'Efficientnet-b6']:
             input_layer = nn.Conv2d(num_input_channel, self.model._conv_stem.out_channels, kernel_size=3, stride=1,
                                     padding=1, dilation=1, groups=1, bias=True)
             self.model._conv_stem = input_layer
